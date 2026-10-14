@@ -1,6 +1,6 @@
 from pandas import read_csv
 import numpy as np
-
+from sklearn.model_selection import train_test_split
 
 def load_mnist(csv_filename):
     """Load the MNIST dataset.
@@ -26,4 +26,8 @@ def split_data(x, y, tr_fraction=0.5):
     Split the data x, y into two random subsets
 
     """
-    pass
+
+    Xtr, Xts, ytr, yts = train_test_split(x, y, train_size=0.5, random_state=10, shuffle=True)
+
+    return Xtr, ytr, Xts, yts
+    
